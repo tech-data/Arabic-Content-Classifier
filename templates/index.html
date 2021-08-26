@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+<style>
+
+  body {
+    background-image: url("{{ url_for('static', filename='image.jpg') }}");
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+  }
+
+
+
+  .center_b {
+   margin: 0;
+   position: absolute;
+   top: 65%;
+   left: 50%;.
+   -ms-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+   color:rgb(255, 255, 255);
+  font-size:50px;
+  }
+  .center_l {
+   margin: 0;
+   position: absolute;
+   top: 50%;
+   left: 70%;.
+   -ms-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+  }
+  .SearchBar {
+   height: 10%;
+   width: 20%;
+   position: absolute;
+   top: 50%;
+   left: 50%;.
+   -ms-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+  }
+ h1{
+  text-align:center;
+   color:rgb(255, 255, 255);
+ }
+</style>
+
+<body>
+
+ <div class="login">
+	<h1 >Text Classification</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+    	<input  class='SearchBar'  type="text" name="text" placeholder="text" required="required" />
+      
+	
+
+        <button  class=center_l  type="submit" class="btn btn-primary btn-block btn-large" rows="1" cols="50">Predict</button>
+
+
+    </form>
+    <div class=center_b >  {{ prediction_text }}  </div> 
+
+   <br>
+   <br>
+
+
+ </div>
+
+
+</body>
+</html>
